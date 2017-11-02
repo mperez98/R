@@ -12,7 +12,17 @@ median(CafeRuckus2016$Sales)
 #3
 boxplot(CafeRuckus2016$Sales ~ CafeRuckus2016$`Day of week`)
 #4
-
+#a
+#creating side by side boxplots
+boxplot(CafeRuckus2016$`Iced Latte`~CafeRuckus2016$`Weather event`)
+title(main="Avg. Iced Lattes Sold During Diff. Weather", + xlab="Weather Type", ylab="avg. # of lattes sold")
+#b
+#creating a linear regression model
+model <- lm(CafeRuckus2016$`Iced Latte` ~ CafeRuckus2016$`High temp (F)`)
+model
+plot(CafeRuckus2016$`High temp (F)`, CafeRuckus2016$`Iced Latte`, main="Avg. Iced Lattes Sold by Temperature Highs", xlab="Temperature Highs in Farenheit", ylab="avg. # of lattes sold")#scatterplot of high temp vs latte sales
+#plotting the correlation line over the scatterplot
+abline(model)
 #5
 table(CafeRuckus2016$`Most Popular`,CafeRuckus2016$`Weather event`)
 mosaicplot(table(CafeRuckus2016$`Most Popular`,CafeRuckus2016$`Weather event`), xlab = "Most Popular Item", ylab = "WeatherEvent", main = "Most Popular Items in Different Weather Events", color=TRUE)
